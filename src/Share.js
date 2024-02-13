@@ -39,7 +39,7 @@ const Share = (props) => {
           <div className="btn-group btn-group-lg" role="group" >
             <button  className="btn btn-danger mx-2 " onClick={() =>!(balance < 200 )?(withdrawMoney(200), buyamazon(1), buyshare(1), props.showAlert("Bought for $200 !", "success")):props.showAlert( `Need $${200-balance} more to buy this Share!`, "danger")
             } >Amazon</button>
-                        {/* eslint-disable-next-line*/}
+                      {/* eslint-disable-next-line*/}
             <button disabled={!AmazonShares ? true : false} className="btn btn-success mx-2" onClick={() => (depositMoney(250), sellamazon(1), sellshare(1), props.showAlert("Sold at $250 !", "success"))}>Amazon ({AmazonShares})</button>
           </div>
         </div>
