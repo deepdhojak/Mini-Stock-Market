@@ -6,16 +6,16 @@ const Share = (props) => {
 
   const dispatch = useDispatch();
   const balance = useSelector(state => state.amount);
-  const numberofshares = useSelector(state => state.numb);
+  // const numberofshares = useSelector(state => state.numb);
   const MetaShares = useSelector(state => state.Meta);
   const AmazonShares = useSelector(state => state.Amazon);
   const AppleShares = useSelector(state => state.Apple);
   const NetflixShares = useSelector(state => state.Netflix);
   const GoogleShares = useSelector(state => state.Google);
-  const needmore = (need) =>{
-    let num = parseInt(need)
-    return num ;
-  }
+  // const needmore = (need) =>{
+  //   let num = parseInt(need)
+  //   return num ;
+  // }
 
 
   const { withdrawMoney, depositMoney, buyshare, sellshare, buymeta, sellmeta, buyamazon, sellamazon, buyapple, sellapple, buynetflix, sellnetflix, buygoogle, sellgoogle } = bindActionCreators(actionCreators, dispatch);
@@ -31,9 +31,9 @@ const Share = (props) => {
           <div className="btn-group btn-group-lg" role="group" >
             <button  className="btn btn-danger mx-2 " onClick={() => !(balance < 50 )?(withdrawMoney(50), buymeta(1), buyshare(1), props.showAlert("Bought for $50 !", "success")):props.showAlert( `Need $${50-balance} more to buy this Share!` , "danger")
             } >Meta</button>
-            <button disabled={!MetaShares ? true : false} className="btn btn-success mx-2" onClick={() => (depositMoney(150), sellmeta(1), sellshare(1), props.showAlert("Sold at $150 !", "success"))}>Meta ({MetaShares})</button>
-          </div>
-        </div>
+            <button disabled={!MetaShares ? true : false} className="btn btn-success mx-2" onClick={() => (depositMoney(150), sellmeta(1), sellshare(1), props.showAlert("Sold at $150 !", "success"))}>Meta ({MetaShares}) </button>
+           </div>
+         </div>
         <div className="mx-auto my-2" style={{ width: '252px' }}>
           <div className="btn-group btn-group-lg" role="group" >
             <button  className="btn btn-danger mx-2 " onClick={() =>!(balance < 200 )?(withdrawMoney(200), buyamazon(1), buyshare(1), props.showAlert("Bought for $200 !", "success")):props.showAlert( `Need $${200-balance} more to buy this Share!`, "danger")
